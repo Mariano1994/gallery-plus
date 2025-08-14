@@ -22,7 +22,7 @@ export const buttonVariants = tv({
 			md: "h-10 py-2 pl-3 pr-3",
 		},
 		disabled: {
-			true: "opacity-50 pointer-events-none",
+			true: "opacity-50 pointer-events-none cursor-not-allow",
 		},
 		handling: {
 			true: "pointer-events-none",
