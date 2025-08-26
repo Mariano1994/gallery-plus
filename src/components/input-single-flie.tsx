@@ -37,6 +37,7 @@ interface InputSingleFileProps
   form: any;
   allowedExtension: string[];
   maxFileSizeInMB: number;
+  repleceBy: React.ReactNode;
   error?: React.ReactNode;
 }
 
@@ -46,6 +47,7 @@ const InputSingleFile = ({
   error,
   allowedExtension,
   maxFileSizeInMB,
+  repleceBy,
   ...props
 }: InputSingleFileProps) => {
   const formValues = useWatch({ control: form.control });
@@ -122,28 +124,31 @@ const InputSingleFile = ({
           </div>
         </>
       ) : (
-        <div className=" flex items-center gap-3 border border-solid border-border-primary rounded-lg p-3 mt-5">
-          <Icon svg={FileImageIcon} className="fill-white h-6 w-6" />
-          <div className="flex flex-col ">
-            <div className="truncate max-w-80">
-              <Text variant="label-medium">{formFile.name}</Text>
-            </div>
+        <>
+          {repleceBy}
+          <div className=" flex items-center gap-3 border border-solid border-border-primary rounded-lg p-3 mt-5">
+            <Icon svg={FileImageIcon} className="fill-white h-6 w-6" />
+            <div className="flex flex-col ">
+              <div className="truncate max-w-80">
+                <Text variant="label-medium">{formFile.name}</Text>
+              </div>
 
-            <div className="flex">
-              <button
-                onClick={() => form.setValue(name, undefined)}
-                type="button"
-                className={textVariants({
-                  variant: "label-small",
-                  className: "text-accent-red cursor-pointer hover:underline",
-                })}
-              >
-                {" "}
-                Remover
-              </button>
+              <div className="flex">
+                <button
+                  onClick={() => form.setValue(name, undefined)}
+                  type="button"
+                  className={textVariants({
+                    variant: "label-small",
+                    className: "text-accent-red cursor-pointer hover:underline",
+                  })}
+                >
+                  {" "}
+                  Remover
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );
