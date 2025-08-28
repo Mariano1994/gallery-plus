@@ -5,7 +5,7 @@ export default function LayoutMain() {
   return (
     <>
       <MainHeader className="mt-9" />
-      <Outlet />;
+      <Outlet />
     </>
   );
 }

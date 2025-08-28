@@ -2,6 +2,7 @@ import Button from "../components/button";
 import ButtonIcon from "../components/button-icon";
 import ChevronLeftIcon from "../assets/icons/chevron-left.svg?react";
 import ChevronRightIcon from "../assets/icons/chevron-right.svg?react";
+
 import Badge from "../components/badge";
 import Alert from "../components/alert";
 import Divider from "../components/divider";
@@ -13,6 +14,7 @@ import { useForm } from "react-hook-form";
 import InputCheckBox from "../components/input-checkbox";
 import ImageFilePreview from "../components/image-file-preview";
 import { Dialog } from "@radix-ui/react-dialog";
+
 import {
   DaialogClose,
   DialogBody,
