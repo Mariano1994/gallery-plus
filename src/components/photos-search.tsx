@@ -11,7 +11,6 @@ const debouncedSearch = debounce(
 
 const PhotosSearch = () => {
   const [inputValue, setInputValue] = useState("");
-
   const debouncedSetValue = useCallback(debouncedSearch, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
