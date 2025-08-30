@@ -12,7 +12,7 @@ interface ImageFilePreviewProps extends React.ComponentProps<"img"> {
   imageClassName?: string;
 }
 
-const ImageFilePreview = ({
+const ImagePreview = ({
   className,
   imageClassName,
   ...props
@@ -27,4 +27,4 @@ const ImageFilePreview = ({
   );
 };
 
-export default ImageFilePreview;
+export default ImagePreview;

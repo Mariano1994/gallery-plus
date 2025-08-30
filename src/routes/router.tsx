@@ -14,7 +14,7 @@ export const route = createBrowserRouter([
         element: <PageHome />,
       },
       {
-        path: "/photo/:id",
+        path: "/photos/:id",
         element: <PagePhotoDetails />,
       },
       {
