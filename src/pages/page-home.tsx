@@ -1,4 +1,5 @@
 import Container from "../components/container";
+import AlbumsFilter from "../contexts/album/components/albums-filter";
 import PhotosList from "../contexts/photos/components/photos-list";
 
 const photos = [
@@ -46,10 +47,26 @@ const photos = [
     ],
   },
 ];
+const albums = [
+  {
+    id: "knibeutuet",
+    title: "Viagens",
+  },
 
+  {
+    id: "knibeutuet8",
+    title: "Trabalho",
+  },
+
+  {
+    id: "knibeutuetiu",
+    title: "Natureza",
+  },
+];
 const PageHome = () => {
   return (
     <Container>
+      <AlbumsFilter albums={albums} className="mb-9" loading />
       <PhotosList photos={photos} />
     </Container>
   );

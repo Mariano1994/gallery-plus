@@ -10,7 +10,7 @@ interface PhotosListProps {
 
 const PhotosList = ({ photos, loading }: PhotosListProps) => {
   return (
-    <div className="space-y-5">
+    <div className="space-y-6">
       <Text
         variant="paragraph-large"
         className="flex items-center justify-end gap-1 text-accent-span"
