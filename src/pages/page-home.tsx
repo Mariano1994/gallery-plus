@@ -66,7 +66,7 @@ const albums = [
 const PageHome = () => {
   return (
     <Container>
-      <AlbumsFilter albums={albums} className="mb-9" loading />
+      <AlbumsFilter albums={albums} className="mb-9" />
       <PhotosList photos={photos} />
     </Container>
   );
