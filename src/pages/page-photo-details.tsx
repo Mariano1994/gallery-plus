@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+// import { useParams } from "react-router";
 import Text from "../components/text";
 import Container from "../components/container";
 import type { Photo } from "../contexts/photos/models/photo";
@@ -9,7 +9,7 @@ import Button from "../components/button";
 import AlbumsListSelectable from "../contexts/album/components/albums-list-selectable";
 
 const PagePhotoDetails = () => {
-  const { id } = useParams();
+  // const { id } = useParams();
 
   // Only for test Propouse
   const isLoadingPhoto = false;
