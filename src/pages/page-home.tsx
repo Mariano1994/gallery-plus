@@ -15,7 +15,7 @@ const photos = [
   },
 
   {
-    id: "yrowiyr",
+    id: "yrowiyr1",
     title: "Ola mundo",
     imageId: "portrait-tower.png",
     albums: [
@@ -26,7 +26,7 @@ const photos = [
   },
 
   {
-    id: "yrowiyr",
+    id: "yrowiyr5",
     title: "Ola mundo",
     imageId: "portrait-tower.png",
     albums: [
@@ -37,7 +37,7 @@ const photos = [
   },
 
   {
-    id: "yrowiyr",
+    id: "yrowiyr0",
     title: "Ola mundo",
     imageId: "portrait-tower.png",
     albums: [
