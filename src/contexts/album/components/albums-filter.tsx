@@ -1,19 +1,13 @@
 import Button from "../../../components/button";
 import Skeleton from "../../../components/skeleton";
 import Text from "../../../components/text";
-import type { Album } from "../models/album";
-import cx from "classnames";
 
-interface AlbumsFilterProps extends React.ComponentProps<"div"> {
-  albums: Album[];
-  loading?: boolean;
-}
-const AlbumsFilter = ({
-  albums,
-  loading,
-  className,
-  ...props
-}: AlbumsFilterProps) => {
+import cx from "classnames";
+import useAlbums from "../hooks/use-albums";
+
+interface AlbumsFilterProps extends React.ComponentProps<"div"> {}
+const AlbumsFilter = ({ className, ...props }: AlbumsFilterProps) => {
+  const { albums, isLoadingAlbums } = useAlbums();
   return (
     <div
       className={cx(`flex items-center gap-3 overflow-x-auto`, className)}
@@ -22,13 +16,13 @@ const AlbumsFilter = ({
       <Text variant="heading-small">Albuns</Text>
 
       <div className="flex gap-3">
-        {!loading ? (
+        {!isLoadingAlbums ? (
           <>
             <Button variant="primary" size="sm" className="cursor-pointer">
               Todos
             </Button>
 
-            {!loading &&
+            {!isLoadingAlbums &&
               albums.map((album) => (
                 <Button
                   key={album.id}
