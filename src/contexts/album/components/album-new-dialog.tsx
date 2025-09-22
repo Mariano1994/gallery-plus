@@ -10,63 +10,17 @@ import {
 } from "../../../components/dialog";
 import InputText from "../../../components/input-text";
 import Text from "../../../components/text";
-import type { Photo } from "../../photos/models/photo";
 import SelectCheckBoxIlustration from "../../../assets/images/select-checkbox.svg?react";
 import Skeleton from "../../../components/skeleton";
 import PhotoImageSelectable from "../../photos/components/photo-image-selectable";
+import usePhotos from "../../photos/hooks/use-photos";
 
 interface AlbumNewDialogProps {
   trigger: React.ReactNode;
 }
 
 const AlbumNewDialog = ({ trigger }: AlbumNewDialogProps) => {
-  const isLoadingPhoto = false;
-
-  const photos: Photo[] = [
-    {
-      id: "yrowiyr",
-      title: "Foto de viangem a china",
-      imageId: "portrait-tower.png",
-      albums: [
-        { id: "skhfk", title: "almnut" },
-        { id: "skhfkjf", title: "almnujt" },
-        { id: "skjgugrhfk", title: "almnut" },
-      ],
-    },
-
-    {
-      id: "yrowiyr1",
-      title: "Ola mundo",
-      imageId: "portrait-tower.png",
-      albums: [
-        { id: "skhfk", title: "almnut" },
-        { id: "skhfkjf", title: "almnujt" },
-        { id: "skjgugrhfk", title: "almnut" },
-      ],
-    },
-
-    {
-      id: "yrowiyr5",
-      title: "Ola mundo",
-      imageId: "portrait-tower.png",
-      albums: [
-        { id: "skhfk", title: "almnut" },
-        { id: "skhfkjf", title: "almnujt" },
-        { id: "skjgugrhfk", title: "almnut" },
-      ],
-    },
-
-    {
-      id: "yrowiyr0",
-      title: "Ola mundo",
-      imageId: "portrait-tower.png",
-      albums: [
-        { id: "skhfk", title: "almnut" },
-        { id: "skhfkjf", title: "almnujt" },
-        { id: "skjgugrhfk", title: "almnut" },
-      ],
-    },
-  ];
+  const { photos, isLoadingPhotos } = usePhotos();
 
   const handleToggleSelect = (selected: boolean, photoId: string) => {
     console.log(selected, photoId);
@@ -84,7 +38,7 @@ const AlbumNewDialog = ({ trigger }: AlbumNewDialogProps) => {
               Fotos Cadastradas
             </Text>
 
-            {isLoadingPhoto && (
+            {isLoadingPhotos && (
               <div className="flex items-center gap-2 flex-wrap">
                 {Array.from({ length: 4 }).map((_, index) => (
                   <Skeleton
@@ -95,12 +49,12 @@ const AlbumNewDialog = ({ trigger }: AlbumNewDialogProps) => {
               </div>
             )}
 
-            {!isLoadingPhoto && photos.length > 0 && (
+            {!isLoadingPhotos && photos.length > 0 && (
               <div className="flex items-center gap-2 flex-wrap">
                 {photos.map((photo) => (
                   <PhotoImageSelectable
                     key={photo.id}
-                    src={`/images/${photo.imageId}`}
+                    src={`${import.meta.env.VITE_IMAGES_URL}/${photo.imageId}`}
                     title={photo.title}
                     imageClassName="h-20 w-20"
                     onSelectImage={(selected) =>
@@ -111,7 +65,7 @@ const AlbumNewDialog = ({ trigger }: AlbumNewDialogProps) => {
               </div>
             )}
 
-            {!isLoadingPhoto && photos.length === 0 && (
+            {!isLoadingPhotos && photos.length === 0 && (
               <div className="w-full flex flex-col justify-center items-center gap-3">
                 <SelectCheckBoxIlustration />
                 <Text variant="paragraph-medium" className="text-center">
