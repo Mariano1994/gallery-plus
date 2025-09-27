@@ -2,21 +2,20 @@ import InputText from "./input-text";
 import SearchIcon from "../assets/icons/search.svg?react";
 import { useState, useCallback } from "react";
 import { debounce } from "../helpers/utils";
+import usePhotos from "../contexts/photos/hooks/use-photos";
 
 // Create the debounced function outside the component
-const debouncedSearch = debounce(
-  (value: string) => console.log(`Pesquisa com debounce ${value}`),
-  200
-);
+const debouncedSearch = debounce((func) => func(), 500);
 
 const PhotosSearch = () => {
   const [inputValue, setInputValue] = useState("");
   const debouncedSetValue = useCallback(debouncedSearch, []);
+  const { filters } = usePhotos();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
 
-    debouncedSetValue(value);
+    debouncedSetValue(filters.setQ(value));
     setInputValue(value);
   };
 
