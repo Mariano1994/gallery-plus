@@ -4,9 +4,11 @@ import Text from "../../../components/text";
 
 import cx from "classnames";
 import useAlbums from "../hooks/use-albums";
+import usePhotos from "../../photos/hooks/use-photos";
 
 interface AlbumsFilterProps extends React.ComponentProps<"div"> {}
 const AlbumsFilter = ({ className, ...props }: AlbumsFilterProps) => {
+  const { filters } = usePhotos();
   const { albums, isLoadingAlbums } = useAlbums();
   return (
     <div
@@ -18,7 +20,12 @@ const AlbumsFilter = ({ className, ...props }: AlbumsFilterProps) => {
       <div className="flex gap-3">
         {!isLoadingAlbums ? (
           <>
-            <Button variant="primary" size="sm" className="cursor-pointer">
+            <Button
+              variant={filters.albumId === null ? "primary" : "ghost"}
+              size="sm"
+              className="cursor-pointer"
+              onClick={() => filters.setAlbumId(null)}
+            >
               Todos
             </Button>
 
@@ -26,9 +33,10 @@ const AlbumsFilter = ({ className, ...props }: AlbumsFilterProps) => {
               albums.map((album) => (
                 <Button
                   key={album.id}
-                  variant="ghost"
+                  variant={filters.albumId === album.id ? "primary" : "ghost"}
                   size="sm"
                   className="cusor-pointer"
+                  onClick={() => filters.setAlbumId(album.id)}
                 >
                   {album.title}
                 </Button>
