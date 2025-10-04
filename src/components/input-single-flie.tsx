@@ -118,7 +118,7 @@ const InputSingleFile = ({
 
             {error && (
               <Text variant="label-small" className="text-accent-red">
-                Um erro no campo
+                {error}
               </Text>
             )}
           </div>
