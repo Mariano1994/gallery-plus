@@ -1,7 +1,6 @@
 import Button from "../../../components/button";
 import Skeleton from "../../../components/skeleton";
 import Text from "../../../components/text";
-
 import cx from "classnames";
 import useAlbums from "../hooks/use-albums";
 import usePhotos from "../../photos/hooks/use-photos";
