@@ -103,7 +103,7 @@ const AlbumNewDialog = ({ trigger }: AlbumNewDialogProps) => {
           </DialogBody>
 
           <DialogFooter>
-            <DaialogClose>
+            <DaialogClose asChild>
               <Button variant="secondary">Cancelar</Button>
             </DaialogClose>
 
