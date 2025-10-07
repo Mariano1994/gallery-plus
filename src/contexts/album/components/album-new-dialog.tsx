@@ -37,7 +37,16 @@ const AlbumNewDialog = ({ trigger }: AlbumNewDialogProps) => {
   }, [form, isModalOpen]);
 
   const handleToggleSelect = (selected: boolean, photoId: string) => {
-    console.log(selected, photoId);
+    const photosIds = form.getValues("photoIds") || [];
+    let newValue = [];
+
+    if (selected) {
+      newValue = [...photosIds, photoId];
+    } else {
+      newValue = photosIds.filter((id) => id !== photoId);
+    }
+
+    form.setValue("photoIds", newValue);
   };
 
   const handleSubmmit = (payload: AlbumNewFormSchema) => {
