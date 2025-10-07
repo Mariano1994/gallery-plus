@@ -46,7 +46,8 @@ const AlbumsListSelectable = ({
               </Text>
               <InputCheckBox
                 defaultChecked={isChecked(album.id)}
-                onClick={() => handlePhotosOnAlbums(album.id)}
+                onChange={() => handlePhotosOnAlbums(album.id)}
+                disabled
               />
             </div>
             {index !== albums.length - 1 && <Divider className="mt-4" />}
