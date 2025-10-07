@@ -62,6 +62,7 @@ const PhotoNewDialog = ({ trigger }: PhotoNewDialogProps) => {
   function handleSubmit(payload: PhotoNewFormSchema) {
     setIsCreatingPhoto(async () => {
       await createPhoto(payload);
+      setModalOpen(false);
     });
   }
 
