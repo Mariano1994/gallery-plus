@@ -1,6 +1,80 @@
 # Gallery Plus
 
-React + Fastify full‑stack photo gallery with albums, uploads, search and a JSON file database. The backend serves REST APIs and static images; the frontend is a Vite React app using TanStack Query and React Router.
+## Overview
+
+**Gallery Plus** is a modern, full-stack photo gallery application designed for photographers, content creators, and anyone who needs a simple solution for organizing and sharing their image collections. 
+
+### What is Gallery Plus?
+
+Gallery Plus combines the power of a React-based frontend with a high-performance Fastify backend to deliver a complete photo management solution.
+
+### Key Characteristics
+
+🎯 **Purpose-Built**: Specifically designed for photo gallery management with features like album organization, advanced search, and intuitive photo navigation
+
+⚡ **Performance-First**: Built with modern tools like React 19, Vite 6, and Fastify 4 for lightning-fast performance and optimal user experience
+
+🔧 **Developer-Friendly**: Clean, well-documented codebase with TypeScript throughout, comprehensive API documentation, and modular architecture
+
+📱 **Mobile-Ready**: Fully responsive design that works beautifully on desktop, tablet, and mobile devices with touch-optimized interactions
+
+🛠 **Self-Contained**: No external database dependencies - everything runs with just Node.js and a simple JSON file for data persistence
+
+🔒 **Type-Safe**: End-to-end type safety with TypeScript, Zod validation, and comprehensive error handling
+
+
+### Who Is This For?
+
+- **Photographers** who need a simple way to organize and share their work without complex software
+- **Content Creators** looking for a lightweight gallery solution that they can customize and control
+- **Developers** who want a modern reference implementation of a full-stack TypeScript application
+- **Small Businesses** needing a self-hosted image gallery without complex infrastructure costs
+- **Learning Enthusiasts** studying modern web development patterns and best practices
+- **Agencies** requiring a white-label gallery solution that can be easily branded and deployed
+
+### Perfect Use Cases
+
+✅ **Portfolio Websites**: Showcase your photography or design work with professional presentation
+
+✅ **Event Photography**: Organize photos from weddings, corporate events, or parties into searchable albums
+
+✅ **Product Catalogs**: Display product images with detailed organization and search capabilities
+
+✅ **Family Photo Sharing**: Create a private, self-hosted alternative to commercial photo sharing services
+
+✅ **Educational Projects**: Document classroom activities, field trips, or student work with organized galleries
+
+✅ **Real Estate**: Showcase property photos organized by location, property type, or other criteria
+
+✅ **Development Learning**: Use as a reference for modern React/TypeScript/Node.js application architecture
+
+### What Makes It Special?
+
+Gallery Plus stands out from other photo gallery solutions through several key innovations:
+
+**📊 Smart State Management**: Uses URL-based state persistence, meaning your search queries, filters, and navigation state are preserved in the browser URL - perfect for sharing specific gallery views or bookmarking filtered results.
+
+**🔄 Real-time Search**: Implements debounced search with instant visual feedback, allowing users to find photos quickly without overwhelming the server with requests.
+
+**🎯 Album-Photo Relationships**: Sophisticated many-to-many relationship management where photos can belong to multiple albums, with intuitive UI for managing these associations.
+
+**🚀 Modern Development Stack**: Leverages the latest versions of React 19, React Router 7, and Tailwind CSS 4, providing a cutting-edge development experience with the newest web platform features.
+
+**💰 Zero Infrastructure Costs**: No need for PostgreSQL, MongoDB, or cloud databases - everything runs on the filesystem with automatic JSON database initialization.
+
+### Technical Philosophy
+
+Gallery Plus embodies modern web development principles:
+
+- **Type Safety First**: Full TypeScript implementation with Zod validation ensures runtime safety and excellent developer experience
+- **Component-Driven**: Modular React components with clear separation of concerns and reusable design patterns
+- **API-Centric Design**: RESTful backend that can support multiple frontends or be integrated into existing applications
+- **Performance Optimized**: Smart caching with TanStack Query, lazy loading, and optimized bundle sizes for fast loading
+- **Developer Experience**: Hot reloading, comprehensive linting, clear project structure, and extensive documentation
+
+---
+
+*A React + Fastify full‑stack photo gallery with albums, uploads, search and a JSON file database. The backend serves REST APIs and static images; the frontend is a Vite React app using TanStack Query and React Router.*
 
 ## Stack
 - **Frontend**: React 19, React Router 7, TanStack Query 5, Tailwind CSS 4, Vite 6
