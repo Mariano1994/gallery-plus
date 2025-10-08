@@ -3,41 +3,66 @@
 React + Fastify full‑stack photo gallery with albums, uploads, search and a JSON file database. The backend serves REST APIs and static images; the frontend is a Vite React app using TanStack Query and React Router.
 
 ## Stack
-- **Frontend**: React 19, React Router 7, TanStack Query 5, Tailwind CSS 4, Vite
+- **Frontend**: React 19, React Router 7, TanStack Query 5, Tailwind CSS 4, Vite 6
 - **Backend**: Fastify 4, @fastify/cors, @fastify/multipart, @fastify/static
+- **Forms**: React Hook Form 7, Zod 3 for validation, @hookform/resolvers
+- **UI Components**: Radix UI (Dialog), Sonner (Toasts), Tailwind Variants
 - **Data**: File‑based JSON DB at `data/db.json` and images under `data/images`
-- **Build/Tooling**: TypeScript, tsup, ESLint
+- **Build/Tooling**: TypeScript 5.8, tsup, ESLint 9, SWC
 
 ## Features
 - **Photo Gallery**: Browse, search, and view photos with responsive design
 - **Album Management**: Create, delete albums and assign photos to multiple albums
+- **Photo Creation**: Create new photos with title and upload images
+- **Photo Deletion**: Delete photos and their associated images
 - **Advanced Search**: Real-time search with debounced input and URL state persistence
 - **Photo Filtering**: Filter photos by album with URL-based state management
 - **Photo Navigation**: Navigate between photos with previous/next functionality
-- **Image Upload**: Upload image files via multipart form data
-- **Responsive UI**: Modern, mobile-friendly interface with Tailwind CSS
+- **Image Upload**: Upload image files via multipart form data with drag-and-drop support
+- **Form Validation**: React Hook Form with Zod schema validation
+- **Toast Notifications**: User feedback with Sonner toast notifications
+- **Responsive UI**: Modern, mobile-friendly interface with Tailwind CSS v4
 - **Static Serving**: Efficient serving of uploaded images at `/images/*`
 - **Type Safety**: Full TypeScript implementation with Zod-validated endpoints
-- **State Management**: React Query for server state and URL state for filters
+- **State Management**: TanStack Query for server state and URL state for filters
 
 ## Project structure
 ```
 server/
   main.ts                  # Fastify app bootstrap and plugins
+  models.ts                # Shared TypeScript interfaces
   services/
     database-service.ts    # JSON file DB read/write and initialization
     image-service.ts       # Image persistence (filesystem)
   photos/                  # Photos domain (routes, service, interfaces)
+    photos-routes.ts       # Photo API endpoints
+    photos-service.ts      # Photo business logic
+    photos-interfaces.ts   # Photo type definitions
   albums/                  # Albums domain (routes, service, interfaces)
+    albums-routes.ts       # Album API endpoints
+    albums-service.ts      # Album business logic
+    albums-interfaces.ts   # Album type definitions
 src/
-  App.tsx                  # Providers and router host
+  App.tsx                  # App component with providers and router
+  main.tsx                 # React app entry point
   routes/router.tsx        # Routes: /, /photos/:id, /components
-  pages/                   # Layout and pages
-  contexts/                # Feature modules (hooks, components, models)
-  components/              # UI components
+  pages/                   # Page components and layouts
+    layout-main.tsx        # Main layout component
+    page-home.tsx          # Home page with photo gallery
+    page-photo-details.tsx # Photo detail view
+    page-components.tsx    # Component showcase page
+  contexts/                # Feature modules with schemas
+    photos/schemas.ts      # Photo-related Zod schemas
+    album/schemas.ts       # Album-related Zod schemas
+  components/              # Reusable UI components
+  helpers/                 # Utility functions and API helpers
+    api.ts                 # API client configuration
+    utils.ts               # General utility functions
+  assets/                  # Static assets (icons, images)
 data/
   db.json                  # JSON database (auto‑created if missing)
-public/images/             # Static demo images for the frontend
+public/
+  images/                  # Static demo images for the frontend
 ```
 
 ## Prerequisites
@@ -224,7 +249,17 @@ graph TB
 ## Importing API collection
 A Postman collection is available at `Gallery+.postman_collection.json`.
 
-## Notes
-- Set a custom backend port with `PORT=XXXX pnpm dev-server`.
-- Ensure `data/` is writable by the Node process.
+## Recent Updates
+- ✅ Photo deletion functionality with image cleanup
+- ✅ New album creation with photo assignment during creation
+- ✅ Enhanced photo creation workflow with form validation
+- ✅ Improved dialog components with proper accessibility
+- ✅ Better form state management and validation schemas
+
+## Development Notes
+- Set a custom backend port with `PORT=XXXX pnpm dev-server`
+- Ensure `data/` is writable by the Node process
+- The project uses SWC for fast React compilation via Vite
+- SVG icons are handled via vite-plugin-svgr for optimized imports
+- Form validation uses Zod schemas defined in the contexts directory
 
